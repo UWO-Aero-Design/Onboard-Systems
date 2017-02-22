@@ -1,0 +1,23 @@
+--- ARDUINO ---
+IMU			I2C		P		sensor_msgs/Imu.msg
+GPS			I2C		P		sensor_msgs/NatSatFix.msg
+Barometer		I2C		P		sensor_msgs/FluidPressure.msg
+Battery Voltage		Analog		P		sensor_msgs/BatteryState.msg
+control surface output	PWM		S		sensor_msgs/ChannelFloat32.msg
+drop servo output	PWM		S		sensor_msgs/ChannelFloat32.msg
+Pitot tube		Analog		P		nav_msgs/Odometry or geometry_msgs/Twist
+Serial to Pi		Serial		//
+
+--- PI ---
+Serial to arduino	Serial		//
+Serial to radio		Serial		//
+Radio input		SPI		P		sensor_msgs/ChannelFloat32.msg
+Drop algo		//		SP		sensor_msgs/ChannelFloat32.msg
+Orientation		//		SP		geometry_msgs/Pose.msg
+Stability		//		SP		nothing for now
+Data logging		//		//		*rosbag
+
+--- GROUNDSTATION ---
+Serial to radio		Serial		//
+Telemetry		//		S		*custom
+Drop command		//		P		sensor_msgs/ChannelFloat32.msg		
